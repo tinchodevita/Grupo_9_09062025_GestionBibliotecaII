@@ -1,4 +1,4 @@
-package clasesBotones;
+package clasesBotones.accionesConLibros;
 
 import java.awt.BorderLayout;
 import java.awt.Font;
@@ -13,9 +13,9 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-import clases.LeerArchivo;
-import clases.Libro;
-import clases.ManejoDeLista;
+import clases.libros.LeerArchivo;
+import clases.libros.Libro;
+import clases.libros.ManejoDeLista;
 
 public class PrestarLibro extends JFrame{
 

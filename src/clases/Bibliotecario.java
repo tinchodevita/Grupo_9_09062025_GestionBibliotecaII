@@ -2,6 +2,8 @@ package clases;
 
 import java.util.ArrayList;
 
+import clases.libros.Libro;
+
 public class Bibliotecario {
 
     ArrayList<Libro> listaLibros;

@@ -1,4 +1,4 @@
-package clases;
+package clases.libros;
 
 public class Libro {
     String nombre;
@@ -13,6 +13,7 @@ public class Libro {
         this.disponible = true;
     }
 
+    // getters necesarios
     public String getNombre() {
         return nombre;
     }
@@ -29,8 +30,22 @@ public class Libro {
         return disponible;
     }
 
+    // setter necesarios
+    
     public void setDisponible(boolean disponible) {
         this.disponible = disponible;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public void setAutor(String autor) {
+        this.autor = autor;
+    }
+
+    public void setCategoria(String categoria) {
+        this.categoria = categoria;
     }
 
     @Override

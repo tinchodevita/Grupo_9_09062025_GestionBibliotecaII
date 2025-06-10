@@ -1,12 +1,12 @@
-package clasesBotones;
+package clasesBotones.accionesConLibros;
 
 import java.awt.*;
 import java.util.ArrayList;
 import javax.swing.*;
 
-import clases.LeerArchivo;
-import clases.Libro;
-import clases.ManejoDeLista;
+import clases.libros.LeerArchivo;
+import clases.libros.Libro;
+import clases.libros.ManejoDeLista;
 
 public class BuscarLibro extends JFrame {
 
