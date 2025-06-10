@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import javax.swing.*;
 
 import clases.LeerArchivo;
+import clases.Libro;
 import clases.ManejoDeLista;
 
 public class BuscarLibro extends JFrame {
@@ -40,25 +41,47 @@ public class BuscarLibro extends JFrame {
         btnBuscar.setFont(new Font("Arial", Font.BOLD, 16));
 
         btnBuscar.addActionListener(e -> {
-            String nombre = txtNombreLibro.getText().trim();
+            String txtBusqueda = txtNombreLibro.getText().trim();
 
-            if (nombre.isEmpty()) {
+            if (txtBusqueda.isEmpty()) {
                 JOptionPane.showMessageDialog(this, "Debe ingresar el nombre de un libro.");
             } else {
                 
-                ArrayList<String> listaLibros = ManejoDeLista.getLista();
-                boolean encontrado = false;
+                ArrayList<Libro> listaLibros = ManejoDeLista.getLista();
+                ArrayList<Libro> resultados = new ArrayList<>();
 
-                for (String libro : listaLibros) {
-                    if (libro.equalsIgnoreCase(nombre)) {
-                        JOptionPane.showMessageDialog(this, "📚 El libro \"" + libro + "\" está disponible.");
-                        encontrado = true;
-                        break;
+                for (Libro libro : listaLibros) {
+                    // System.out.println("Buscando: " + txtBusqueda);
+                    // System.out.println("→ Nombre: " + libro.getNombre().toLowerCase());
+                    // System.out.println("→ Autor: " + libro.getAutor().toLowerCase());
+                    // System.out.println("→ Categoría: " + libro.getCategoria().toLowerCase());
+
+                    // System.out.println("¿Coincide?: " + (
+                    //     libro.getNombre().toLowerCase().contains(txtBusqueda.toLowerCase()) ||
+                    //     libro.getAutor().toLowerCase().contains(txtBusqueda.toLowerCase()) ||
+                    //     libro.getCategoria().toLowerCase().contains(txtBusqueda.toLowerCase())
+                    // ));
+
+                    if (
+                        libro.getNombre().toLowerCase().contains(txtBusqueda.toLowerCase()) ||
+                        libro.getAutor().toLowerCase().contains(txtBusqueda.toLowerCase()) ||
+                        libro.getCategoria().toLowerCase().contains(txtBusqueda.toLowerCase())
+                    ) {
+                        resultados.add(libro);
                     }
                 }
 
-                if (!encontrado) {
-                    JOptionPane.showMessageDialog(this, "❌ El libro no fue encontrado.");
+                if (resultados.isEmpty()) {
+                    JOptionPane.showMessageDialog(this, "❌ No se encontraron resultados.");
+                } else {
+                    StringBuilder mensaje = new StringBuilder("📚 Resultados encontrados:\n\n");
+                    for (Libro l : resultados) {
+                        mensaje.append("Titulo: ").append(l.getNombre()).append("\n");
+                        mensaje.append("Autor: ").append(l.getAutor()).append("\n");
+                        mensaje.append("Categoría: ").append(l.getCategoria()).append("\n");
+                        mensaje.append("-------------------------\n");
+                    }
+                    JOptionPane.showMessageDialog(this, mensaje.toString());
                 }
             }
         });

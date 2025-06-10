@@ -8,10 +8,6 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.GridLayout;
 import clasesBotones.*;
-import clasesBotones.AdministrarLibro;
-import clasesBotones.BuscarLibro;
-import clasesBotones.DevolverLibro;
-import clasesBotones.PrestarLibro;
 
 public class App extends JFrame{
 
