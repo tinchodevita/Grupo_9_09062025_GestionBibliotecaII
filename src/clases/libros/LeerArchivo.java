@@ -12,8 +12,10 @@ public class LeerArchivo {
         
         try (BufferedReader leer = new BufferedReader(new FileReader(nombreArchivo))) {
             String lectura; 
+            ManejoDeLista.getLista().clear(); // limpia la lista antes de recargar
 
             while ((lectura = leer.readLine()) != null) {
+
                 lista.crearLista(lectura);                
             }
     

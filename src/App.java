@@ -13,7 +13,6 @@ import clasesBotones.accionesConLibros.AdministrarLibro;
 import clasesBotones.accionesConLibros.BuscarLibro;
 import clasesBotones.accionesConLibros.DevolverLibro;
 import clasesBotones.accionesConLibros.PrestarLibro;
-import clasesBotones.accionUsuarios.AdministrarUsuarios;
 
 public class App extends JFrame{
 
