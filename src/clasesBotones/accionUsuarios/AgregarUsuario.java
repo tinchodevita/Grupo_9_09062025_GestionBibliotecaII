@@ -31,32 +31,32 @@ public class AgregarUsuario extends JFrame {
         JLabel lblNombre = new JLabel("Nombre:");
         JTextField txtNombre = new JTextField();
 
-        JLabel lblDni = new JLabel("DNI:");
-        JTextField txtDni = new JTextField();
+        JLabel lblId = new JLabel("ID:");
+        JTextField txtId = new JTextField();
 
         JButton btnAgregar = new JButton("Agregar Usuario");
 
         btnAgregar.addActionListener(e -> {
             String nombre = txtNombre.getText().trim();
-            String dni = txtDni.getText().trim();
+            String id = txtId.getText().trim();
 
-            if (nombre.isEmpty() || dni.isEmpty()) {
+            if (nombre.isEmpty() || id.isEmpty()) {
                 JOptionPane.showMessageDialog(this, "Por favor, completá todos los campos.");
                 return;
             }
 
-            Usuario nuevoUsuario = new Usuario(nombre, dni);
+            Usuario nuevoUsuario = new Usuario(nombre, id);
             ArrayList<Usuario> lista = ManejoDeUsuarios.getListaUsuarios();
             lista.add(nuevoUsuario);
             ManejoDeUsuarios.guardarCambios();
 
             JOptionPane.showMessageDialog(this, "✅ Usuario agregado correctamente.");
             txtNombre.setText("");
-            txtDni.setText("");
+            txtId.setText("");
         });
 
         centro.add(lblNombre); centro.add(txtNombre);
-        centro.add(lblDni); centro.add(txtDni);
+        centro.add(lblId); centro.add(txtId);
         centro.add(new JLabel()); centro.add(btnAgregar);
 
         panel.add(centro, BorderLayout.CENTER);

@@ -11,8 +11,8 @@ public class ManejoDeUsuarios {
         String[] partes = linea.split(";");
         if (partes.length == 2) {
             String nombre = partes[0].trim();
-            String dni = partes[1].trim();
-            Usuario usuario = new Usuario(nombre, dni);
+            String id = partes[1].trim();
+            Usuario usuario = new Usuario(nombre, id);
             listaUsuarios.add(usuario);
         }
     }
@@ -24,7 +24,7 @@ public class ManejoDeUsuarios {
     public static void guardarCambios() {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter("usuarios.txt"))) {
             for (Usuario u : listaUsuarios) {
-                writer.write(u.getNombre() + ";" + u.getDni());
+                writer.write(u.getNombre() + ";" + u.getId());
                 writer.newLine();
             }
         } catch (IOException e) {

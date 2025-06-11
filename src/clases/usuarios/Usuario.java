@@ -2,31 +2,31 @@ package clases.usuarios;
 
 public class Usuario {
     private String nombre;
-    private String dni;
+    private String id;
 
-    public Usuario(String nombre, String dni) {
+    public Usuario(String nombre, String id) {
         this.nombre = nombre;
-        this.dni = dni;
+        this.id = id;
     }
 
     public String getNombre() {
         return nombre;
     }
 
-    public String getDni() {
-        return dni;
+    public String getId() {
+        return id;
     }
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
 
-    public void setDni(String dni) {
-        this.dni = dni;
+    public void setId(String id) {
+        this.id = id;
     }
 
     @Override
     public String toString() {
-        return nombre + "; " + dni;
+        return nombre + "; " + id;
     }
 }

@@ -8,6 +8,7 @@ import clases.libros.ManejoDeLista;
 
 import java.awt.*;
 import java.util.ArrayList;
+import java.util.ListResourceBundle;
 import java.util.function.LongBinaryOperator;
 
 public class DevolverLibro extends JFrame {
@@ -48,30 +49,31 @@ public class DevolverLibro extends JFrame {
         btnVerPrestados.setFont(new Font("Arial", Font.PLAIN, 14));
 
         btnDevolver.addActionListener(e -> {
-            String texto = txtNombre.getText().trim();
-            if (texto.isEmpty()) {
-                JOptionPane.showMessageDialog(this, "Debe ingresar el nombre del libro.");
-            } else {
-                ArrayList<Libro> lista = ManejoDeLista.getLista();
-                boolean encontrado = false;
+            String texto = txtNombre.getText().trim().toLowerCase();
 
-                for (Libro libro : lista) {
-                    if (libro.getNombre().equalsIgnoreCase(texto)) {
-                        encontrado = true;
-                        if (!libro.getDisponible()) {
-                            libro.setDisponible(true);
-                            JOptionPane.showMessageDialog(this, "✅ El libro \"" + libro.getNombre() + "\" fue devuelto.");
-                        } else {
-                            JOptionPane.showMessageDialog(this, "❌ El libro ya está disponible.");
-                        }
-                        break;
-                    }
-                }
+            ArrayList<Libro> lista = ManejoDeLista.getLista();
 
-                if (!encontrado) {
-                    JOptionPane.showMessageDialog(this, "📕 Libro no encontrado.");
-                }
+            boolean encontrado = false;
+
+            for(Libro libro : lista) {
+                if (libro.getNombre().trim().toLowerCase().equals(texto)) {encontrado = true;
+                    
+                    if (!libro.getDisponible()) {
+                        libro.setDisponible(true);
+                        libro.setIdUsuario("");
+                        JOptionPane.showMessageDialog(this, "✅ Libro devuelto correctamente.");
+                        ManejoDeLista.guardarCambios();
+                    } else {JOptionPane.showMessageDialog(this, "⚠️ El libro no estaba prestado.");}
+
+                    break;
+                } 
+
             }
+
+            if (!encontrado) {
+                JOptionPane.showMessageDialog(this, "❌ Libro no encontrado.");
+            }
+            
         });
 
         btnVerPrestados.addActionListener(e -> {

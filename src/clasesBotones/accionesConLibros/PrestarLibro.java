@@ -16,6 +16,9 @@ import javax.swing.JTextField;
 import clases.libros.LeerArchivo;
 import clases.libros.Libro;
 import clases.libros.ManejoDeLista;
+import clases.usuarios.LeerArchivoUsuario;
+import clases.usuarios.ManejoDeUsuarios;
+import clases.usuarios.Usuario;
 
 public class PrestarLibro extends JFrame{
 
@@ -29,6 +32,10 @@ public class PrestarLibro extends JFrame{
         // cargar libros
         LeerArchivo lector = new LeerArchivo();
         lector.leerArchivo("libros.txt");
+
+        // cargar usuarios
+        LeerArchivoUsuario lectorUsuarios = new LeerArchivoUsuario();
+        lectorUsuarios.leerArchivo("usuarios.txt");
 
         // panel
         JPanel panel = new JPanel(new BorderLayout(10, 10));
@@ -58,6 +65,20 @@ public class PrestarLibro extends JFrame{
         btnPrestar.addActionListener(e -> {
             String texto = txtNombre.getText().trim();
             String idUsuario = txtIDUsuario.getText().trim();
+
+            boolean usuarioExiste = false;
+
+            for (Usuario u : ManejoDeUsuarios.getListaUsuarios()) {
+                if (u.getId().equals(idUsuario)) {
+                    usuarioExiste = true;
+                    break;
+                }
+            }
+
+            if (!usuarioExiste) {
+                JOptionPane.showMessageDialog(this, "❌ El ID ingresado no corresponde a ningún usuario."); 
+                return;
+            }
             
             if (texto.isEmpty()) {
                 JOptionPane.showMessageDialog(this, "Debe ingresar el titulo del libro.");
@@ -70,6 +91,8 @@ public class PrestarLibro extends JFrame{
                         encontrado = true;
                         if (libro.getDisponible()) {
                             libro.setDisponible(false);
+                            libro.setIdUsuario(idUsuario);
+                            ManejoDeLista.guardarCambios();
                             JOptionPane.showMessageDialog(this, "✅ El libro \"" + libro.getNombre() + "\" fue prestado al usuario ID: " + idUsuario + ".");
                         } else {
                             JOptionPane.showMessageDialog(this, "❌ El libro ya está prestado.");

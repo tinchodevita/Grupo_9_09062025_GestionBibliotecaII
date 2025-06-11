@@ -4,6 +4,8 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 
+import clases.libros.VerLibros;
+
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.GridLayout;
@@ -46,11 +48,15 @@ public class App extends JFrame{
         JButton btnAdministrarUsuarios = new JButton("Administrar Usuarios");
         btnAdministrarUsuarios.addActionListener(e -> new AdministrarUsuarios().setVisible(true));
 
+        JButton btnVerLibros = new JButton("Ver Todo los Libros");
+        btnVerLibros.addActionListener(e -> new VerLibros());
+
         btnBuscarLibro.setFont(font);
         btnPrestarLibro.setFont(font);
         btnDevolverLibro.setFont(font);
         btnAdministracionLibro.setFont(font);
         btnAdministrarUsuarios.setFont(font);
+        btnVerLibros.setFont(font);
 
         // agregar botones al panel
         panel.add(btnBuscarLibro);
@@ -58,6 +64,7 @@ public class App extends JFrame{
         panel.add(btnDevolverLibro);
         panel.add(btnAdministracionLibro);
         panel.add(btnAdministrarUsuarios);
+        panel.add(btnVerLibros);
 
         add(panel);
     }

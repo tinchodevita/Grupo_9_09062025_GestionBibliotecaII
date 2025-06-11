@@ -28,8 +28,8 @@ public class EditarUsuario extends JFrame {
 
         JPanel centro = new JPanel(new GridLayout(4, 2, 10, 10));
 
-        JLabel lblDni = new JLabel("DNI del usuario:");
-        JTextField txtDni = new JTextField();
+        JLabel lblId = new JLabel("ID del usuario:");
+        JTextField txtId = new JTextField();
 
         JLabel lblNombreActual = new JLabel("Nuevo nombre:");
         JTextField txtNuevoNombre = new JTextField();
@@ -37,7 +37,7 @@ public class EditarUsuario extends JFrame {
         JButton btnBuscar = new JButton("Buscar");
         JButton btnGuardar = new JButton("Guardar cambios");
 
-        centro.add(lblDni); centro.add(txtDni);
+        centro.add(lblId); centro.add(txtId);
         centro.add(lblNombreActual); centro.add(txtNuevoNombre);
         centro.add(new JLabel()); centro.add(btnBuscar);
         centro.add(new JLabel()); centro.add(btnGuardar);
@@ -46,14 +46,14 @@ public class EditarUsuario extends JFrame {
         add(panel);
         setVisible(true);
 
-        // Buscar usuario por DNI
+        // Buscar usuario por ID
         btnBuscar.addActionListener(e -> {
-            String dni = txtDni.getText().trim();
+            String id = txtId.getText().trim();
             ArrayList<Usuario> lista = ManejoDeUsuarios.getListaUsuarios();
             boolean encontrado = false;
 
             for (Usuario u : lista) {
-                if (u.getDni().equals(dni)) {
+                if (u.getId().equals(id)) {
                     txtNuevoNombre.setText(u.getNombre());
                     encontrado = true;
                     break;
@@ -68,10 +68,10 @@ public class EditarUsuario extends JFrame {
 
         // Guardar cambios
         btnGuardar.addActionListener(e -> {
-            String dni = txtDni.getText().trim();
+            String id = txtId.getText().trim();
             String nuevoNombre = txtNuevoNombre.getText().trim();
 
-            if (dni.isEmpty() || nuevoNombre.isEmpty()) {
+            if (id.isEmpty() || nuevoNombre.isEmpty()) {
                 JOptionPane.showMessageDialog(this, "Completá todos los campos.");
                 return;
             }
@@ -80,7 +80,7 @@ public class EditarUsuario extends JFrame {
             boolean actualizado = false;
 
             for (Usuario u : lista) {
-                if (u.getDni().equals(dni)) {
+                if (u.getId().equals(id)) {
                     u.setNombre(nuevoNombre);
                     actualizado = true;
                     break;
@@ -90,7 +90,7 @@ public class EditarUsuario extends JFrame {
             if (actualizado) {
                 ManejoDeUsuarios.guardarCambios();
                 JOptionPane.showMessageDialog(this, "✅ Usuario actualizado.");
-                txtDni.setText("");
+                txtId.setText("");
                 txtNuevoNombre.setText("");
             } else {
                 JOptionPane.showMessageDialog(this, "❌ No se pudo actualizar el usuario.");

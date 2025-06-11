@@ -1,20 +1,20 @@
-El resplandor;Stephen King;Terror
-Cementerio de animales;Stephen King;Terror
-La chica del tren;Paula Hawkins;Thriller
-El psicoanalista;John Katzenbach;Thriller
-Perdida;Gillian Flynn;Thriller
-Los hombres que no amaban a las mujeres;Stieg Larsson;Misterio
-El codigo Da Vinci;Dan Brown;Misterio
-El nombre de la rosa;Umberto Eco;Misterio
-1984;George Orwell;Ciencia ficción
-Un mundo feliz;Aldous Huxley;Ciencia ficción
-Fahrenheit 451;Ray Bradbury;Ciencia ficción
-La sombra del viento;Carlos Ruiz Zafón;Ficción histórica
-Los pilares de la Tierra;Ken Follett;Ficción histórica
-El ocho;Katherine Neville;Ficción histórica
-Crónica de una muerte anunciada;Gabriel García Márquez;Realismo mágico
-Cien años de soledad;Gabriel García Márquez;Realismo mágico
-Rayuela;Julio Cortázar;Ficción literaria
-Tokio Blues;Haruki Murakami;Ficción contemporánea
-El alquimista;Paulo Coelho;Ficción espiritual
-Noha;Sebastian Fitzek;Suspenso
+El resplandor;Stephen King;Terror;true;
+Cementerio de animales;Stephen King;Terror;true;
+La chica del tren;Paula Hawkins;Thriller;true;
+El psicoanalista;John Katzenbach;Thriller;true;
+Perdida;Gillian Flynn;Thriller;true;
+Los hombres que no amaban a las mujeres;Stieg Larsson;Misterio;true;
+El codigo Da Vinci;Dan Brown;Misterio;true;
+El nombre de la rosa;Umberto Eco;Misterio;true;
+1984;George Orwell;Ciencia ficción;false;1
+Un mundo feliz;Aldous Huxley;Ciencia ficción;true;
+Fahrenheit 451;Ray Bradbury;Ciencia ficción;true;
+La sombra del viento;Carlos Ruiz Zafón;Ficción histórica;true;
+Los pilares de la Tierra;Ken Follett;Ficción histórica;true;
+El ocho;Katherine Neville;Ficción histórica;true;
+Crónica de una muerte anunciada;Gabriel García Márquez;Realismo mágico;true;
+Cien años de soledad;Gabriel García Márquez;Realismo mágico;true;
+Rayuela;Julio Cortázar;Ficción literaria;true;
+Tokio Blues;Haruki Murakami;Ficción contemporánea;true;
+El alquimista;Paulo Coelho;Ficción espiritual;true;
+Noha;Sebastian Fitzek;Suspenso;false;4

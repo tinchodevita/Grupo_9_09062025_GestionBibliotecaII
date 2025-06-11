@@ -5,12 +5,14 @@ public class Libro {
     String autor;
     String categoria;
     boolean disponible;
+    String idUsuario;
 
     public Libro(String nombre, String autor, String categoria) {
         this.nombre = nombre;
         this.autor = autor;
         this.categoria = categoria;
         this.disponible = true;
+        this.idUsuario = null;
     }
 
     // getters necesarios
@@ -28,6 +30,10 @@ public class Libro {
 
     public boolean getDisponible() {
         return disponible;
+    }
+
+    public String getIdUsuario() {
+        return idUsuario;
     }
 
     // setter necesarios
@@ -48,10 +54,15 @@ public class Libro {
         this.categoria = categoria;
     }
 
+    public void setIdUsuario(String idUsuario) {
+        this.idUsuario = idUsuario;
+    }
+
     @Override
     public String toString() {
         String estado = disponible? "Disponible" : "Prestado";
-        return nombre + "; " + autor + "; " + categoria + ";" + estado;
+        String infoUsario = (!disponible && idUsuario != null && !idUsuario.isEmpty()) ? "(ID usario: " + idUsuario + ")" : "";
+        return nombre + "; " + autor + "; " + categoria + " - " + estado + infoUsario;
     }
 
 }

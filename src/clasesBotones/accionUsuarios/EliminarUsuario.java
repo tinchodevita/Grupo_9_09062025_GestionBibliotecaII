@@ -28,22 +28,22 @@ public class EliminarUsuario extends JFrame {
 
         JPanel centro = new JPanel(new GridLayout(2, 1, 10, 10));
 
-        JTextField txtDni = new JTextField();
-        txtDni.setFont(new Font("Arial", Font.PLAIN, 16));
-        centro.add(txtDni);
+        JTextField txtId = new JTextField();
+        txtId.setFont(new Font("Arial", Font.PLAIN, 16));
+        centro.add(txtId);
 
         JButton btnEliminar = new JButton("Eliminar Usuario");
         btnEliminar.setFont(new Font("Arial", Font.BOLD, 16));
 
         btnEliminar.addActionListener(e -> {
-            String dni = txtDni.getText().trim();
+            String id = txtId.getText().trim();
             ArrayList<Usuario> lista = ManejoDeUsuarios.getListaUsuarios();
 
             boolean eliminado = false;
 
             for (int i = 0; i < lista.size(); i++) {
                 Usuario u = lista.get(i);
-                if (u.getDni().equals(dni)) {
+                if (u.getId().equals(id)) {
                     int confirmacion = JOptionPane.showConfirmDialog(this,
                         "¿Estás seguro que querés eliminar al usuario \"" + u.getNombre() + "\"?",
                         "Confirmar eliminación", JOptionPane.YES_NO_OPTION);

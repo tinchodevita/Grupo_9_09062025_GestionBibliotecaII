@@ -8,15 +8,15 @@ public class LeerArchivo {
 
     public void leerArchivo(String nombreArchivo) {
 
-        ManejoDeLista lista = new ManejoDeLista();
+        ManejoDeLista.getLista().clear();
         
         try (BufferedReader leer = new BufferedReader(new FileReader(nombreArchivo))) {
+            
             String lectura; 
-            ManejoDeLista.getLista().clear(); // limpia la lista antes de recargar
 
             while ((lectura = leer.readLine()) != null) {
 
-                lista.crearLista(lectura);                
+                new ManejoDeLista().crearLista(lectura);
             }
     
         } catch (IOException e) {
